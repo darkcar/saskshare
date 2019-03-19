@@ -6,29 +6,26 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import ca.saskshare.domain.User;
-import ca.saskshare.service.impl.BussinessServiceImpl;
-
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/logout")
+public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		BussinessServiceImpl bussinessServiceImpl = new BussinessServiceImpl();
-		User user = bussinessServiceImpl.login(username, password);
-		if (user != null) {
-			request.getSession().setAttribute("user", user);
-			response.sendRedirect(request.getContextPath() + "/index.jsp");
-			return;
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			session.removeAttribute("user");
 		}
-		request.setAttribute("message", "Username or password wrong!!!");
+		
+		// Logut sucess, redirect to gloable message. 
+		request.setAttribute("message", "Logout sucessfully! <meta http-equiv='refresh' content='3;url="
+				+ request.getContextPath() + "'>");
 		request.getRequestDispatcher("/WEB-INF/jsp/message.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
