@@ -7,6 +7,7 @@
 	4. jstl-1.2.jar
 	5. taglibs-standard-impl-1.2.5.jar
 	6. mysql-connector-java-8.0.15.jar
+	7. commons-codec-1.12.jar
 	
 ##2 Create packages
 	ca.saskshare.dao
