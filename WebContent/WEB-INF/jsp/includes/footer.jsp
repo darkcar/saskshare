@@ -6,5 +6,6 @@
 		</div>
 	</footer>
 </div>
+<script src="${pageContext.request.contextPath }/assets/js/myScript.js"></script>
 </body>
 </html>

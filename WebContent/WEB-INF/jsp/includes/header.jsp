@@ -30,15 +30,20 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
+<!-- Bootstrap VAlidator -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+
 </head>
 <body>
 	<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
 		<header class="masthead mb-auto">
 			<div class="inner">
-				<h3 class="masthead-brand">SPCP</h3>
+				<a href="${pageContext.request.contextPath }"><h3 class="masthead-brand">SPCP</h3></a>
 				<nav class="nav nav-masthead justify-content-center">
 					<a class="nav-link active" href="${pageContext.request.contextPath }">Home</a> 
 					<a class="nav-link" href="#">Explore</a> 
+					<a class="nav-link" href="${pageContext.request.contextPath }/about">About</a> 
 					<c:if test="${user == null }">
 						<a class="nav-link" href="${pageContext.request.contextPath }/login">Login</a>
 					</c:if>

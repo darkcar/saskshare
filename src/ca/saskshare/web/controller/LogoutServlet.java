@@ -19,7 +19,7 @@ public class LogoutServlet extends HttpServlet {
 		}
 		
 		// Logut sucess, redirect to gloable message. 
-		request.setAttribute("message", "Logout sucessfully! <meta http-equiv='refresh' content='3;url="
+		request.setAttribute("message", "Logout sucessfully! You will be redirected to homepage in 3 seconds... <meta http-equiv='refresh' content='3;url="
 				+ request.getContextPath() + "'>");
 		request.getRequestDispatcher("/WEB-INF/jsp/message.jsp").forward(request, response);
 	}
