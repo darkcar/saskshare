@@ -34,6 +34,9 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 
+<!-- ml5 library -->
+<script src="https://unpkg.com/ml5@0.1.3/dist/ml5.min.js" type="text/javascript"></script>
+
 </head>
 <body>
 	<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">

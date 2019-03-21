@@ -3,6 +3,7 @@
 		<div class="speech-control-container">
 			<div class="speech-control">
 				<div class="fa fa-microphone microphone-icon"></div>
+				<p>Press the button, and start talking...</p>
 			</div>
 			<input type="hidden" name="q" id="transcript">
 			<div class="speech-control-pulse"></div>
