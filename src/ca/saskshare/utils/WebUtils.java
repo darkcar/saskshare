@@ -1,5 +1,7 @@
 package ca.saskshare.utils;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,5 +24,9 @@ public class WebUtils {
 		}
 	}
 	
-	
+	public static Date addOneWeek() {
+		Calendar rightNow = Calendar.getInstance();
+		rightNow.add(Calendar.DAY_OF_MONTH, 7);
+		return rightNow.getTime();
+	}
 }

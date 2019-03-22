@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/jsp/includes/header.jsp"%>
 <main role="main">
-<form class="well form-horizontal" action=" " method="post"
-	id="contact_form">
+<form class="well form-horizontal" action="${pageContext.request.contextPath }/addProduct" method="post"
+	id="contact_form" enctype="multipart/form-data">
 	<fieldset>
 		<!-- Form Name -->
 		<legend>Share it Today!</legend>
@@ -17,7 +17,7 @@
 							Image</button>
 						<div class="image-upload-wrap">
 							<input class="file-upload-input" type="file"
-								onchange="readURL(this);" accept="image/*" />
+								onchange="readURL(this);" accept="image/*" name="picture"/>
 							<div class="drag-text">
 								<h3>Drag and drop a file or select add Image</h3>
 							</div>
@@ -48,6 +48,7 @@
 		</div>
 
 		<c:set var="date" value="<%=new java.util.Date()%>"></c:set>
+		<c:set var="futureDate" value="<%= WebUtils.addOneWeek() %>"></c:set>
 		<!-- Text input-->
 		<div class="form-group">
 			<label class="col-md-12 control-label">From Date</label>
@@ -64,7 +65,7 @@
 			<div class="col-md-12 inputGroupContainer">
 				<div class="input-group">
 					<input name="endDate" placeholder="End Date" class="form-control"
-						type="date">
+						type="date" value='<fmt:formatDate value="${futureDate }" pattern="yyyy-MM-dd" />'/>
 				</div>
 			</div>
 		</div>
@@ -76,6 +77,7 @@
 				<div class="input-group">
 					<input name="realname" placeholder="Real Name" class="form-control"
 						type="text" value="${user.realname }">
+					<input type="hidden" name="ownerId" value="${user.id }">
 				</div>
 			</div>
 		</div>
@@ -112,24 +114,15 @@
 		</div>
 		<!-- Text area -->
 		<div class="form-group">
-			<label class="col-md-12 control-label">Project Description</label>
+			<label class="col-md-12 control-label">Description</label>
 			<div class="col-md-12 inputGroupContainer">
 				<div class="input-group">
-					<textarea class="form-control" name="comment"
+					<textarea class="form-control" name="description"
 						placeholder="Project Description"></textarea>
 				</div>
 			</div>
 		</div>
 
-		<div class="form-group">
-			<label class="col-md-12 control-label">Note</label>
-			<div class="col-md-12 inputGroupContainer">
-				<div class="input-group">
-					<textarea class="form-control" name="note"
-						placeholder="Add some notes?"></textarea>
-				</div>
-			</div>
-		</div>
 		<!-- Success message -->
 		<div class="alert alert-success" role="alert" id="success_message">
 			Success <i class="fa fa-thumbs-up"></i> Thanks for contacting us, we
@@ -140,7 +133,7 @@
 			<label class="col-md-12 control-label"></label>
 			<div class="col-md-12">
 				<button type="submit" class="btn btn-warning">
-					Send <span class="fa fa-send"></span>
+					Send 
 				</button>
 			</div>
 		</div>
