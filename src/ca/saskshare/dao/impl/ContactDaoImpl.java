@@ -9,6 +9,7 @@ import java.util.UUID;
 import ca.saskshare.dao.ContactDao;
 import ca.saskshare.dao.DaoException;
 import ca.saskshare.domain.Contact;
+import ca.saskshare.domain.Product;
 import ca.saskshare.utils.JDBCUtils;
 
 public class ContactDaoImpl implements ContactDao {
@@ -60,6 +61,11 @@ public class ContactDaoImpl implements ContactDao {
 			JDBCUtils.free(resultSet, ps, connection);
 		}
 		return contact;
+	}
+	
+	@Override
+	public Contact findContact(Product product) {
+		return findContact(product.getProductId());
 	}
 	
 	private Contact mappingContact(ResultSet resultSet) throws SQLException {

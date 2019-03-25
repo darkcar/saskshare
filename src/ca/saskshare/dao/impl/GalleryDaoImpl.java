@@ -11,6 +11,7 @@ import java.util.UUID;
 import ca.saskshare.dao.DaoException;
 import ca.saskshare.dao.GalleryDao;
 import ca.saskshare.domain.Gallery;
+import ca.saskshare.domain.Product;
 import ca.saskshare.utils.JDBCUtils;
 
 public class GalleryDaoImpl implements GalleryDao {
@@ -31,7 +32,7 @@ public class GalleryDaoImpl implements GalleryDao {
 			ps.setLong(2, gallery.getItemId());
 			ps.setString(3, gallery.getPath());
 			ps.setLong(4, gallery.getProductId());
-			ps.executeQuery();
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			throw new DaoException(e);
 		} finally {
@@ -45,7 +46,6 @@ public class GalleryDaoImpl implements GalleryDao {
 		Connection connection = null;
 		PreparedStatement ps = null;
 		ResultSet resultSet = null;
-		
 		try {
 			connection = JDBCUtils.getConnection();
 			String sql = "SELECT path, productId FROM Gallery where productId = ?";
@@ -59,6 +59,12 @@ public class GalleryDaoImpl implements GalleryDao {
 			throw new DaoException(e);
 		}
 		return galleries;
+	}
+	
+	
+	@Override
+	public Gallery findGallery(Product product) {
+		return findGalleries(product.getProductId()).get(0);
 	}
 	
 	private Gallery mappinGallery(ResultSet resultSet) throws SQLException {

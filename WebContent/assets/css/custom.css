@@ -187,6 +187,8 @@ a, a:focus, a:hover {
  */
 .mastfoot {
 	color: rgba(255, 255, 255, .5);
+	/* margin-top: 2rem !important; */
+	padding: 1.5rem 0;
 }
 
 /**Find Speech Page */
@@ -468,3 +470,27 @@ file-upload {
 #image-group {
 	margin:0;
 }
+
+.jumbotron {
+	background-color: #99A3A4;
+	margin-top: 30px;
+}
+
+.btn-outline-secondary{
+	background-color: #FFC312;
+}
+
+.explor-row {
+	margin-top: 1rem;
+}
+
+.py-5 {
+	padding-top: 1rem !important;
+}
+
+.image{ 
+	text-align: center;
+	padding: 2rem;
+}
+
+

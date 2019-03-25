@@ -1,5 +1,5 @@
 <%@ include file="/WEB-INF/jsp/includes/header.jsp"%>
-	<form method="get" action="#" id="labnol">
+	<form method="get" action="explore" id="labnol">
 		<div class="speech-control-container">
 			<div class="speech-control">
 				<div class="fa fa-microphone microphone-icon"></div>
