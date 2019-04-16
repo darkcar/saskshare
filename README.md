@@ -70,7 +70,8 @@
 			fromDate DATETIME, 
 			endDate DATETIME, 
 			note VARCHAR(255), 
-			ownerId BIGINT
+			ownerId BIGINT,
+			urlTitle VARCHAR(255) NOT NULL
 		);
 
 

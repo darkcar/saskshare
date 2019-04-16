@@ -1,6 +1,7 @@
 package junit.test;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
@@ -32,5 +33,12 @@ public class ProductDaoTest {
 		ProductDao productDaoImpl = new ProductDaoImpl();
 		Product product = productDaoImpl.find(urlTitle);
 		System.out.println(product);
+	}
+	
+	@Test
+	public void testFindAllProducts() {
+		ProductDao productDao = new ProductDaoImpl();
+		List<Product> products = productDao.findProducts();
+		System.out.println(products);
 	}
 }

@@ -45,7 +45,7 @@
 				<a href="${pageContext.request.contextPath }"><h3 class="masthead-brand">SPCP</h3></a>
 				<nav class="nav nav-masthead justify-content-center">
 					<a class="nav-link active" href="${pageContext.request.contextPath }">Home</a> 
-					<a class="nav-link" href="#">Explore</a> 
+					<a class="nav-link" href="${pageContext.request.contextPath }/explore">Explore</a> 
 					<a class="nav-link" href="${pageContext.request.contextPath }/about">About</a> 
 					<c:if test="${user == null }">
 						<a class="nav-link" href="${pageContext.request.contextPath }/login">Login</a>

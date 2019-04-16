@@ -41,6 +41,7 @@ public class AddProductServlet extends HttpServlet {
 		product.setSummary("");
 		product.setNote("");
 		gallery.setProductId(productId);
+		contact.setProductId(productId);
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		if (isMultiPart) {
 			// Upload files 
@@ -68,6 +69,7 @@ public class AddProductServlet extends HttpServlet {
 						switch (fieldName) {
 						case "title":
 							product.setTitle(value);
+							product.setUrlTitle(value.replaceAll("[^A-Za-z0-9]", "-").toLowerCase());
 							break;
 						case "fromDate":
 							product.setFromDate(simpleDateFormat.parse(value));
